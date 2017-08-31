@@ -23,7 +23,18 @@ namespace SantaMaria.Servicios.Seguridad.UI
         {
             MultiIdiioma.MultiIdioma.TraducirForm(this);
             ActualizarListview();
+            VerificarAutorizacion();
         }
+
+        private void VerificarAutorizacion()
+        {
+            BtnHabilitar.Enabled = Servicios.Seguridad.Autorizacion.VerificarPermiso("Habilitar Usuario");
+
+            BtnDesHabilitar.Enabled = Servicios.Seguridad.Autorizacion.VerificarPermiso("Deshabilitar Usuario");
+
+            BtnEliminar.Enabled = Servicios.Seguridad.Autorizacion.VerificarPermiso("Eliminar Usuario");
+        }
+
 
         void ActualizarListview()
         {
@@ -67,6 +78,8 @@ namespace SantaMaria.Servicios.Seguridad.UI
             {
                 BLL.BLLUsuario bll = new BLL.BLLUsuario();
                 bll.HabilitarUsuario(bll.ObtenerPorId(new Guid(listView1.SelectedItems[0].SubItems[3].Text)));
+
+                Bitacora.Bitacora.Instance.LogActividad("Habilitación del usuario " + listView1.SelectedItems[0].SubItems[0].Text, "Success");
                 ActualizarListview();
             }
             catch (BLLException ex)
@@ -81,6 +94,7 @@ namespace SantaMaria.Servicios.Seguridad.UI
             {
                 BLL.BLLUsuario bll = new BLL.BLLUsuario();
                 bll.DeshabilitarUsuario(bll.ObtenerPorId(new Guid(listView1.SelectedItems[0].SubItems[3].Text)));
+                Bitacora.Bitacora.Instance.LogActividad("Deshabilitación del usuario " + listView1.SelectedItems[0].SubItems[0].Text, "Success");
                 ActualizarListview();
             }
             catch (BLLException ex)
@@ -95,6 +109,7 @@ namespace SantaMaria.Servicios.Seguridad.UI
             {
                 BLL.BLLUsuario bll = new BLL.BLLUsuario();
                 bll.EliminarUsuario(bll.ObtenerPorId(new Guid(listView1.SelectedItems[0].SubItems[3].Text)));
+                Bitacora.Bitacora.Instance.LogActividad("Eliminación del usuario " + listView1.SelectedItems[0].SubItems[0].Text, "Success");
                 ActualizarListview();
             }
             catch (BLLException ex)

@@ -191,23 +191,45 @@ namespace SantaMaria.UI
 
 
             Seguridad.Entidades.Familia fam = new Seguridad.Entidades.Familia();
-            fam = bllfam.ObtenerPorNombre("Servicios");
+            fam.NombreComponente = "Usuarios";
+            fam.DescripcionComponente = "Permite ver la lista de Usuarios para habilitarlos, deshabilitarlos o eliminarlos.";
+            fam = bllfam.ObtenerPorNombre("Usuarios");
 
             Seguridad.Entidades.Patente pat = new Seguridad.Entidades.Patente();
-            pat.NombreComponente = "Crear Permiso Personalizado";
-            pat.DescripcionComponente = "Permite al usuario Crear un Permiso Personalizado formado por permisos básicos.";
+            pat.NombreComponente = "Habilitar Usuario";
+            pat.DescripcionComponente = "Permite habilitar usuarios que se encontraban deshabilitados.";
             bllpat.AgregarPatente(pat);
 
             pat = bllpat.ObtenerPorNombre(pat.NombreComponente);
             bllfam.AgregarRelacion(fam, pat);
 
             pat = new Seguridad.Entidades.Patente();
-            pat.NombreComponente = "Usuarios";
-            pat.DescripcionComponente = "Permite al usuario ver la lista de todos los usuarios registrados en la base de datos.";
+            pat.NombreComponente = "Deshabilitar Usuario";
+            pat.DescripcionComponente = "Permite deshabilitar usuarios que se encontraban habilitados.";
             bllpat.AgregarPatente(pat);
 
             pat = bllpat.ObtenerPorNombre(pat.NombreComponente);
             bllfam.AgregarRelacion(fam, pat);
+
+            pat = new Seguridad.Entidades.Patente();
+            pat.NombreComponente = "Eliminar Usuario";
+            pat.DescripcionComponente = "Permite eliminar usuarios de la base de datos.";
+            bllpat.AgregarPatente(pat);
+
+            pat = bllpat.ObtenerPorNombre(pat.NombreComponente);
+            bllfam.AgregarRelacion(fam, pat);
+
+            pat = new Seguridad.Entidades.Patente();
+            pat.NombreComponente = "Ver Usuarios";
+            pat.DescripcionComponente = "Permite ver todos los usuarios que se encuentran almacenados.";
+            bllpat.AgregarPatente(pat);
+
+            pat = bllpat.ObtenerPorNombre(pat.NombreComponente);
+            bllfam.AgregarRelacion(fam, pat);
+
+            Seguridad.Entidades.Familia fam2 = bllfam.ObtenerPorNombre("Servicios");
+            bllfam.AgregarRelacion(fam2, fam);
+            
 
         }
 

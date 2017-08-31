@@ -155,12 +155,18 @@ namespace SantaMaria.Servicios.Seguridad.UI
             {
                 BLL.BLLUsuario bll = new BLL.BLLUsuario();
                 bll.AsignarNuevasPatenes(usuario, ObtenerUltimosNodos());
+                Bitacora.Bitacora.Instance.LogActividad("Asignacion de permisos al usuario " + usuario.usuario, "Success");
+                
             }
             if (familia != null)
             {
                 BLL.BLLFamilia bll = new BLL.BLLFamilia();
                 bll.AsignarNuevasPatenes(familia, ObtenerUltimosNodos());
+                Bitacora.Bitacora.Instance.LogActividad("Asignacion de permisos a la familia " + familia.NombreComponente, "Success");
+                
             }
+
+            FormMensaje.CrearExito("<LblAsignacionCorrecta>");
         }
 
         private void FillCmbxPermisosPersonalizados()

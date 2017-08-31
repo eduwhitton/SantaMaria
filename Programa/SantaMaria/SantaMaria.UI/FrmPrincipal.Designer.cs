@@ -37,7 +37,7 @@
             this.AsignarpermisosToolStripMenuItem = new System.Windows.Forms.ToolStripMenuItem();
             this.CrearusuariosToolStripMenuItem = new System.Windows.Forms.ToolStripMenuItem();
             this.CrearPermisoPersonalizadoToolStripMenuItem = new System.Windows.Forms.ToolStripMenuItem();
-            this.UsuariosToolStripMenuItem = new System.Windows.Forms.ToolStripMenuItem();
+            this.VerUsuariosToolStripMenuItem = new System.Windows.Forms.ToolStripMenuItem();
             this.BitacoraToolStripMenuItem = new System.Windows.Forms.ToolStripMenuItem();
             this.CmbxIdioma = new MetroFramework.Controls.MetroComboBox();
             this.LblIdioma = new MetroFramework.Controls.MetroLabel();
@@ -93,7 +93,7 @@
             this.AsignarpermisosToolStripMenuItem,
             this.CrearusuariosToolStripMenuItem,
             this.CrearPermisoPersonalizadoToolStripMenuItem,
-            this.UsuariosToolStripMenuItem});
+            this.VerUsuariosToolStripMenuItem});
             this.SeguridadToolStripMenuItem.Name = "SeguridadToolStripMenuItem";
             this.SeguridadToolStripMenuItem.Size = new System.Drawing.Size(159, 22);
             this.SeguridadToolStripMenuItem.Text = "<LblSeguridad>";
@@ -119,12 +119,12 @@
             this.CrearPermisoPersonalizadoToolStripMenuItem.Text = "<FrmCrearPermisosPersonalizados>";
             this.CrearPermisoPersonalizadoToolStripMenuItem.Click += new System.EventHandler(this.crearPermisoPersonalizadoToolStripMenuItem_Click);
             // 
-            // UsuariosToolStripMenuItem
+            // VerUsuariosToolStripMenuItem
             // 
-            this.UsuariosToolStripMenuItem.Name = "UsuariosToolStripMenuItem";
-            this.UsuariosToolStripMenuItem.Size = new System.Drawing.Size(265, 22);
-            this.UsuariosToolStripMenuItem.Text = "<FrmUsuarios>";
-            this.UsuariosToolStripMenuItem.Click += new System.EventHandler(this.usuariosToolStripMenuItem_Click);
+            this.VerUsuariosToolStripMenuItem.Name = "VerUsuariosToolStripMenuItem";
+            this.VerUsuariosToolStripMenuItem.Size = new System.Drawing.Size(265, 22);
+            this.VerUsuariosToolStripMenuItem.Text = "<FrmUsuarios>";
+            this.VerUsuariosToolStripMenuItem.Click += new System.EventHandler(this.usuariosToolStripMenuItem_Click);
             // 
             // BitacoraToolStripMenuItem
             // 
@@ -186,7 +186,7 @@
         private System.Windows.Forms.ToolStripMenuItem AsignarpermisosToolStripMenuItem;
         private System.Windows.Forms.ToolStripMenuItem CrearusuariosToolStripMenuItem;
         private System.Windows.Forms.ToolStripMenuItem CrearPermisoPersonalizadoToolStripMenuItem;
-        private System.Windows.Forms.ToolStripMenuItem UsuariosToolStripMenuItem;
+        private System.Windows.Forms.ToolStripMenuItem VerUsuariosToolStripMenuItem;
         private System.Windows.Forms.ToolStripMenuItem BitacoraToolStripMenuItem;
         private MetroFramework.Controls.MetroComboBox CmbxIdioma;
         private MetroFramework.Controls.MetroLabel LblIdioma;

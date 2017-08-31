@@ -10,7 +10,6 @@ using System.Windows.Forms;
 using SantaMaria.Servicios.MultiIdiioma;
 using SantaMaria.Servicios.Excepciones;
 
-
 namespace SantaMaria.UI
 {
     public partial class FrmPrincipal : Servicios.UI.FormBase
@@ -26,6 +25,8 @@ namespace SantaMaria.UI
 
         private void FrmPrincipal_Load(object sender, EventArgs e)
         {
+
+            
             CmbxIdioma.Items.AddRange(MultiIdioma.ListarIdiomas().ToArray());
             try
             {
@@ -42,6 +43,7 @@ namespace SantaMaria.UI
                 Application.Exit();
                 return;
             }
+
             AutorizacionMenu();
         }
 
@@ -52,7 +54,7 @@ namespace SantaMaria.UI
             VerificarItemDelMenu("Backup");
             VerificarItemDelMenu("Bitacora");
             VerificarItemDelMenu("Crear Permiso Personalizado");
-            VerificarItemDelMenu("Usuarios");
+            VerificarItemDelMenu("Ver Usuarios");
             
             
         }
@@ -124,6 +126,7 @@ namespace SantaMaria.UI
 
         private void FrmPrincipal_FormClosing(object sender, FormClosingEventArgs e)
         {
+            if (SantaMaria.Servicios.Contexto.UsuarioActual == null) return;
             DialogResult dialogo = SantaMaria.Servicios.UI.FormMensaje.CrearConfirmación("<LblDeseaSalir?>");
                 
             e.Cancel = (dialogo == DialogResult.No);
