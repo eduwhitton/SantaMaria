@@ -107,6 +107,23 @@ namespace SantaMaria.UI
             bll.AgregarRelacion(new SantaMaria.Servicios.Seguridad.Entidades.Familia(), new SantaMaria.Servicios.Seguridad.Entidades.Patente());
         }
 
+        public static void FuncionCompletamenteNormal()
+        {
+            Seguridad.BLL.BLLUsuario bllusu = new Seguridad.BLL.BLLUsuario();
+            Seguridad.BLL.BLLFamilia bllfam = new Seguridad.BLL.BLLFamilia();
+            Seguridad.BLL.BLLPatente bllpat = new Seguridad.BLL.BLLPatente();
+
+            Seguridad.Entidades.Patente pat = new Seguridad.Entidades.Patente();
+            pat.NombreComponente = "Log de Errores";
+            pat.DescripcionComponente = "Permite ver todos los errores que se ocasionaron dentro del sistema.";
+            bllpat.AgregarPatente(pat);
+
+            Seguridad.Entidades.Familia fam = bllfam.ObtenerPorNombre("Servicios");
+
+            pat = bllpat.ObtenerPorNombre(pat.NombreComponente);
+            bllfam.AgregarRelacion(fam, pat);
+        }
+
         private void button9_Click(object sender, EventArgs e)
         {
             Seguridad.BLL.BLLUsuario bllusu = new Seguridad.BLL.BLLUsuario();

@@ -87,6 +87,14 @@
     <Compile Include="Encriptación\Codificador.cs" />
     <Compile Include="Excepciones\CheckSumException.cs" />
     <Compile Include="Excepciones\DALException.cs" />
+    <Compile Include="Excepciones\DAOErrorLog.cs" />
+    <Compile Include="Excepciones\FormErrorLog.cs">
+      <SubType>Form</SubType>
+    </Compile>
+    <Compile Include="Excepciones\FormErrorLog.Designer.cs">
+      <DependentUpon>FormErrorLog.cs</DependentUpon>
+    </Compile>
+    <Compile Include="Informes.cs" />
     <Compile Include="Seguridad\UI\FrmAsignarPermisos.cs">
       <SubType>Form</SubType>
     </Compile>
@@ -170,6 +178,9 @@
     </EmbeddedResource>
     <EmbeddedResource Include="Bitacora\FrmBitacora.resx">
       <DependentUpon>FrmBitacora.cs</DependentUpon>
+    </EmbeddedResource>
+    <EmbeddedResource Include="Excepciones\FormErrorLog.resx">
+      <DependentUpon>FormErrorLog.cs</DependentUpon>
     </EmbeddedResource>
     <EmbeddedResource Include="Seguridad\UI\FrmAsignarPermisos.resx">
       <DependentUpon>FrmAsignarPermisos.cs</DependentUpon>

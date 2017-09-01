@@ -41,6 +41,7 @@
             this.BitacoraToolStripMenuItem = new System.Windows.Forms.ToolStripMenuItem();
             this.CmbxIdioma = new MetroFramework.Controls.MetroComboBox();
             this.LblIdioma = new MetroFramework.Controls.MetroLabel();
+            this.logDeErroresToolStripMenuItem = new System.Windows.Forms.ToolStripMenuItem();
             this.menuStrip1.SuspendLayout();
             this.SuspendLayout();
             // 
@@ -75,7 +76,8 @@
             this.ServiciosToolStripMenuItem.DropDownItems.AddRange(new System.Windows.Forms.ToolStripItem[] {
             this.BackupToolStripMenuItem,
             this.SeguridadToolStripMenuItem,
-            this.BitacoraToolStripMenuItem});
+            this.BitacoraToolStripMenuItem,
+            this.logDeErroresToolStripMenuItem});
             this.ServiciosToolStripMenuItem.Name = "ServiciosToolStripMenuItem";
             this.ServiciosToolStripMenuItem.Size = new System.Drawing.Size(97, 20);
             this.ServiciosToolStripMenuItem.Text = "<LblServicios>";
@@ -83,7 +85,7 @@
             // BackupToolStripMenuItem
             // 
             this.BackupToolStripMenuItem.Name = "BackupToolStripMenuItem";
-            this.BackupToolStripMenuItem.Size = new System.Drawing.Size(159, 22);
+            this.BackupToolStripMenuItem.Size = new System.Drawing.Size(186, 22);
             this.BackupToolStripMenuItem.Text = "<FrmBackup>";
             this.BackupToolStripMenuItem.Click += new System.EventHandler(this.backupToolStripMenuItem_Click);
             // 
@@ -95,7 +97,7 @@
             this.CrearPermisoPersonalizadoToolStripMenuItem,
             this.VerUsuariosToolStripMenuItem});
             this.SeguridadToolStripMenuItem.Name = "SeguridadToolStripMenuItem";
-            this.SeguridadToolStripMenuItem.Size = new System.Drawing.Size(159, 22);
+            this.SeguridadToolStripMenuItem.Size = new System.Drawing.Size(186, 22);
             this.SeguridadToolStripMenuItem.Text = "<LblSeguridad>";
             // 
             // AsignarpermisosToolStripMenuItem
@@ -129,7 +131,7 @@
             // BitacoraToolStripMenuItem
             // 
             this.BitacoraToolStripMenuItem.Name = "BitacoraToolStripMenuItem";
-            this.BitacoraToolStripMenuItem.Size = new System.Drawing.Size(159, 22);
+            this.BitacoraToolStripMenuItem.Size = new System.Drawing.Size(186, 22);
             this.BitacoraToolStripMenuItem.Text = "<FrmBitacora>";
             this.BitacoraToolStripMenuItem.Click += new System.EventHandler(this.bitacoraToolStripMenuItem_Click);
             // 
@@ -154,6 +156,13 @@
             this.LblIdioma.Size = new System.Drawing.Size(85, 19);
             this.LblIdioma.TabIndex = 2;
             this.LblIdioma.Text = "<LblIdioma>";
+            // 
+            // logDeErroresToolStripMenuItem
+            // 
+            this.logDeErroresToolStripMenuItem.Name = "logDeErroresToolStripMenuItem";
+            this.logDeErroresToolStripMenuItem.Size = new System.Drawing.Size(186, 22);
+            this.logDeErroresToolStripMenuItem.Text = "<FrmLog de Errores>";
+            this.logDeErroresToolStripMenuItem.Click += new System.EventHandler(this.logDeErroresToolStripMenuItem_Click);
             // 
             // FrmPrincipal
             // 
@@ -190,5 +199,6 @@
         private System.Windows.Forms.ToolStripMenuItem BitacoraToolStripMenuItem;
         private MetroFramework.Controls.MetroComboBox CmbxIdioma;
         private MetroFramework.Controls.MetroLabel LblIdioma;
+        private System.Windows.Forms.ToolStripMenuItem logDeErroresToolStripMenuItem;
     }
 }

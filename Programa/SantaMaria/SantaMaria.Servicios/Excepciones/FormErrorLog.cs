@@ -7,35 +7,30 @@ using System.Linq;
 using System.Text;
 using System.Threading.Tasks;
 using System.Windows.Forms;
-using System.IO;
-using SantaMaria.Servicios.Excepciones;
 using SantaMaria.Servicios.UI;
 using SantaMaria.Servicios.MultiIdiioma;
-namespace SantaMaria.Servicios.Bitacora
-{
 
-    public partial class FrmBitacora : Servicios.UI.FormBase
+namespace SantaMaria.Servicios.Excepciones
+{
+    public partial class FrmErrorLog : FormBase
     {
-        public FrmBitacora()
+        public FrmErrorLog()
         {
             InitializeComponent();
         }
-        /// <summary>
-        /// Muestra los primeros 200 resultados de la bitacora
-        /// </summary>
         void Actualizar()
         {
-            DAOBitacora dao = new DAOBitacora();
+            DAOErrorLog dao = new DAOErrorLog();
             try
             {
-                LlenarDataGrid(dao.ObtenerBitacora());
+                LlenarDataGrid(dao.ObtenerErrorLog());
             }
             catch (BLLException ex)
             {
                 FormMensaje.CrearError(ex.Message);
             }
         }
-        private void FrmBitacora_Load(object sender, EventArgs e)
+        private void FormErrorLog_Load(object sender, EventArgs e)
         {
             MultiIdioma.TraducirForm(this);
 
@@ -47,33 +42,18 @@ namespace SantaMaria.Servicios.Bitacora
 
         }
         /// <summary>
-        /// Filtra 200 entradas de la bitacora por Fecha, Usuario o actividad.
+        /// Filtra 200 entradas del ErrorLog por Fecha, Usuario o actividad.
         /// </summary>
         private void BtnFiltrar_Click(object sender, EventArgs e)
         {
-            DAOBitacora dao = new DAOBitacora();
-            try
-            {
-                List<BitacoraRow> lista = dao.ObtenerBitacoraFiltrada(
-                DateTimeDesde.Value,
-                DateTimeHasta.Value,
-                TxBxUsuario.Text.Trim(),
-                TxbxActividad.Text.Trim()
-                );
 
-                LlenarDataGrid(lista);
-            }
-            catch (BLLException ex)
-            {
-                FormMensaje.CrearError(ex.Message);
-            }
         }
 
         /// <summary>
         /// Limpia el Datagrid y lo vuelve a llenar con una lista
         /// </summary>
         /// <param name="lista">Datos a mostrar</param>
-        void LlenarDataGrid(List<BitacoraRow> lista)
+        void LlenarDataGrid(List<ErrorLogRow> lista)
         {
             metroGrid1.Rows.Clear();
             for (int i = 0; i < lista.Count; i++)
@@ -81,12 +61,12 @@ namespace SantaMaria.Servicios.Bitacora
                 metroGrid1.Rows.Add();
                 metroGrid1.Rows[i].Cells[0].Value = lista[i].fecha;
                 metroGrid1.Rows[i].Cells[1].Value = lista[i].usuario;
-                metroGrid1.Rows[i].Cells[2].Value = lista[i].actividad;
-                metroGrid1.Rows[i].Cells[3].Value = lista[i].resultado;
+                metroGrid1.Rows[i].Cells[2].Value = lista[i].mensaje;
+                metroGrid1.Rows[i].Cells[3].Value = lista[i].excepcion;
                 metroGrid1.Rows[i].Cells[4].Value = lista[i].ip;
             }
             metroGrid1.AutoResizeColumns(DataGridViewAutoSizeColumnsMode.AllCells);
-            metroGrid1.Columns[2].AutoSizeMode = DataGridViewAutoSizeColumnMode.Fill;
+            metroGrid1.Columns[3].AutoSizeMode = DataGridViewAutoSizeColumnMode.Fill;
         }
 
         void ImprimirDataGrid()
@@ -96,16 +76,16 @@ namespace SantaMaria.Servicios.Bitacora
 
             item[0] = "Fecha";
             item[1] = "Usuario";
-            item[2] = "Actividad";
-            item[3] = "Resultado";
-            item[4] = "Dirreción IP";
+            item[2] = "Mensaje";
+            item[3] = "Excepción";
+            item[4] = "Direción IP";
 
             items.Add(item);
 
             foreach (DataGridViewRow dr in metroGrid1.Rows)
             {
                 item = new string[5];
-                item[0] = ((DateTime)dr.Cells[0].Value).ToString();
+                item[0] = dr.Cells[0].Value.ToString();
                 item[1] = dr.Cells[1].Value != null ? dr.Cells[1].Value.ToString() : "";
                 item[2] = dr.Cells[2].Value.ToString();
                 item[3] = dr.Cells[3].Value.ToString();
@@ -113,13 +93,14 @@ namespace SantaMaria.Servicios.Bitacora
 
                 items.Add(item);
             }
-
-            Informes.CrearReporte(items.ToArray(), "Reporte de Bitacora");
+            Informes.CrearReporte(items.ToArray(), "Reporte de Errores");
         }
 
         private void BtnGuardar_Click(object sender, EventArgs e)
         {
             ImprimirDataGrid();
         }
+
+
     }
 }

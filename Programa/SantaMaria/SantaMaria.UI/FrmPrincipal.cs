@@ -55,6 +55,7 @@ namespace SantaMaria.UI
             VerificarItemDelMenu("Bitacora");
             VerificarItemDelMenu("Crear Permiso Personalizado");
             VerificarItemDelMenu("Ver Usuarios");
+            VerificarItemDelMenu("Log de Errores");
             
             
         }
@@ -130,6 +131,11 @@ namespace SantaMaria.UI
             DialogResult dialogo = SantaMaria.Servicios.UI.FormMensaje.CrearConfirmación("<LblDeseaSalir?>");
                 
             e.Cancel = (dialogo == DialogResult.No);
+        }
+
+        private void logDeErroresToolStripMenuItem_Click(object sender, EventArgs e)
+        {
+            new Servicios.Excepciones.FrmErrorLog().Show();
         }
     }
 }

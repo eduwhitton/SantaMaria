@@ -49,7 +49,7 @@ namespace SantaMaria.Servicios.Seguridad
             }
             catch (Exception ex)
             {
-                throw new BLLException("<ErrCheckSumDBCorrupta>", ex);
+                throw new BLLException("La base de datos está corrupta.", ex);
             }
         }
     }
