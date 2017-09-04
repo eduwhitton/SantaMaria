@@ -30,6 +30,8 @@ namespace SantaMaria.Servicios.Seguridad.UI
 
             LblNombre.Text = "";
             PnlAsignar.Enabled = false;
+
+            treeView1.Enabled = false;
         }
 
         private void PopularTreeViewPermisosBase()
@@ -194,8 +196,11 @@ namespace SantaMaria.Servicios.Seguridad.UI
                 usuario = user;
                 familia = null;
                 LblNombre.Text = MultiIdiioma.MultiIdioma.TraducirFrase("<LblUsuario>: " + user.Nombre);
-                PnlBuscar.Enabled = false;
                 PnlAsignar.Enabled = true;
+                tabControl1.Enabled = false;
+                treeView1.Enabled = true;
+
+                CargarPermisosActuales();
             }
         }
 
@@ -204,8 +209,15 @@ namespace SantaMaria.Servicios.Seguridad.UI
             usuario = null;
             familia = null;
             LblNombre.Text = "";
-            PnlBuscar.Enabled = true;
             PnlAsignar.Enabled = false;
+            tabControl1.Enabled = true;
+
+            for (int i = 0; i < treeView1.Nodes.Count; i++)
+            {
+                treeView1.Nodes[i].Checked = false;
+            }
+            treeView1.CollapseAll();
+            treeView1.Enabled = false;
         }
 
         private void BtnElegir_Click(object sender, EventArgs e)
@@ -228,7 +240,11 @@ namespace SantaMaria.Servicios.Seguridad.UI
                 familia = fam;
                 LblNombre.Text = MultiIdiioma.MultiIdioma.TraducirFrase("<LblFamilia>: " + fam.NombreComponente);
                 PnlAsignar.Enabled = true;
-                PnlBuscar.Enabled = false;
+
+                tabControl1.Enabled = false;
+                
+                treeView1.Enabled = true;
+                CargarPermisosActuales();
             }
         }
         private void TreeViewUncheckAll()
@@ -245,7 +261,7 @@ namespace SantaMaria.Servicios.Seguridad.UI
             }
         }
 
-        private void BtnCargarPermisosActuales_Click(object sender, EventArgs e)
+        private void CargarPermisosActuales()
         {
             List<string> listapatentes;
             if (usuario != null) listapatentes = usuario.ObtenerComponentes().Select(x => x.NombreComponente).ToList();

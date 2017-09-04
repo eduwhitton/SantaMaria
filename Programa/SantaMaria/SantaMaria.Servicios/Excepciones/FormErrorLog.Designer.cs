@@ -32,21 +32,21 @@
             System.Windows.Forms.DataGridViewCellStyle dataGridViewCellStyle2 = new System.Windows.Forms.DataGridViewCellStyle();
             System.Windows.Forms.DataGridViewCellStyle dataGridViewCellStyle3 = new System.Windows.Forms.DataGridViewCellStyle();
             this.BtnFiltrar = new MetroFramework.Controls.MetroButton();
-            this.TxbxExcepcion = new MetroFramework.Controls.MetroTextBox();
-            this.LblExcepcion = new MetroFramework.Controls.MetroLabel();
-            this.TxBxMensaje = new MetroFramework.Controls.MetroTextBox();
+            this.TxbxMensaje = new MetroFramework.Controls.MetroTextBox();
             this.LblMensaje = new MetroFramework.Controls.MetroLabel();
+            this.TxBxUsuario = new MetroFramework.Controls.MetroTextBox();
+            this.LblUsuario = new MetroFramework.Controls.MetroLabel();
             this.LblFechaHasta = new MetroFramework.Controls.MetroLabel();
             this.DateTimeHasta = new MetroFramework.Controls.MetroDateTime();
             this.LblFechaDesde = new MetroFramework.Controls.MetroLabel();
             this.DateTimeDesde = new MetroFramework.Controls.MetroDateTime();
             this.metroGrid1 = new MetroFramework.Controls.MetroGrid();
-            this.BtnGuardar = new MetroFramework.Controls.MetroButton();
             this.LogDate = new System.Windows.Forms.DataGridViewTextBoxColumn();
             this.Usuario = new System.Windows.Forms.DataGridViewTextBoxColumn();
             this.Message = new System.Windows.Forms.DataGridViewTextBoxColumn();
             this.Exception = new System.Windows.Forms.DataGridViewTextBoxColumn();
             this.IpAddress = new System.Windows.Forms.DataGridViewTextBoxColumn();
+            this.BtnGuardar = new MetroFramework.Controls.MetroButton();
             ((System.ComponentModel.ISupportInitialize)(this.metroGrid1)).BeginInit();
             this.SuspendLayout();
             // 
@@ -59,88 +59,89 @@
             this.BtnFiltrar.TabIndex = 21;
             this.BtnFiltrar.Text = "<BtnFiltrar>";
             this.BtnFiltrar.UseSelectable = true;
+            this.BtnFiltrar.Click += new System.EventHandler(this.BtnFiltrar_Click_1);
             // 
-            // TxbxExcepcion
+            // TxbxMensaje
             // 
-            this.TxbxExcepcion.Anchor = ((System.Windows.Forms.AnchorStyles)((System.Windows.Forms.AnchorStyles.Top | System.Windows.Forms.AnchorStyles.Right)));
-            // 
-            // 
-            // 
-            this.TxbxExcepcion.CustomButton.Image = null;
-            this.TxbxExcepcion.CustomButton.Location = new System.Drawing.Point(92, 1);
-            this.TxbxExcepcion.CustomButton.Name = "";
-            this.TxbxExcepcion.CustomButton.Size = new System.Drawing.Size(21, 21);
-            this.TxbxExcepcion.CustomButton.Style = MetroFramework.MetroColorStyle.Blue;
-            this.TxbxExcepcion.CustomButton.TabIndex = 1;
-            this.TxbxExcepcion.CustomButton.Theme = MetroFramework.MetroThemeStyle.Light;
-            this.TxbxExcepcion.CustomButton.UseSelectable = true;
-            this.TxbxExcepcion.CustomButton.Visible = false;
-            this.TxbxExcepcion.Lines = new string[0];
-            this.TxbxExcepcion.Location = new System.Drawing.Point(647, 253);
-            this.TxbxExcepcion.MaxLength = 32767;
-            this.TxbxExcepcion.Name = "TxbxExcepcion";
-            this.TxbxExcepcion.PasswordChar = '\0';
-            this.TxbxExcepcion.ScrollBars = System.Windows.Forms.ScrollBars.None;
-            this.TxbxExcepcion.SelectedText = "";
-            this.TxbxExcepcion.SelectionLength = 0;
-            this.TxbxExcepcion.SelectionStart = 0;
-            this.TxbxExcepcion.ShortcutsEnabled = true;
-            this.TxbxExcepcion.Size = new System.Drawing.Size(114, 23);
-            this.TxbxExcepcion.TabIndex = 20;
-            this.TxbxExcepcion.UseSelectable = true;
-            this.TxbxExcepcion.WaterMarkColor = System.Drawing.Color.FromArgb(((int)(((byte)(109)))), ((int)(((byte)(109)))), ((int)(((byte)(109)))));
-            this.TxbxExcepcion.WaterMarkFont = new System.Drawing.Font("Segoe UI", 12F, System.Drawing.FontStyle.Italic, System.Drawing.GraphicsUnit.Pixel);
-            // 
-            // LblExcepcion
-            // 
-            this.LblExcepcion.Anchor = ((System.Windows.Forms.AnchorStyles)((System.Windows.Forms.AnchorStyles.Top | System.Windows.Forms.AnchorStyles.Right)));
-            this.LblExcepcion.AutoSize = true;
-            this.LblExcepcion.Location = new System.Drawing.Point(647, 231);
-            this.LblExcepcion.Name = "LblExcepcion";
-            this.LblExcepcion.Size = new System.Drawing.Size(102, 19);
-            this.LblExcepcion.TabIndex = 19;
-            this.LblExcepcion.Text = "<LblExcepcion>";
-            // 
-            // TxBxMensaje
-            // 
-            this.TxBxMensaje.Anchor = ((System.Windows.Forms.AnchorStyles)((System.Windows.Forms.AnchorStyles.Top | System.Windows.Forms.AnchorStyles.Right)));
+            this.TxbxMensaje.Anchor = ((System.Windows.Forms.AnchorStyles)((System.Windows.Forms.AnchorStyles.Top | System.Windows.Forms.AnchorStyles.Right)));
             // 
             // 
             // 
-            this.TxBxMensaje.CustomButton.Image = null;
-            this.TxBxMensaje.CustomButton.Location = new System.Drawing.Point(92, 1);
-            this.TxBxMensaje.CustomButton.Name = "";
-            this.TxBxMensaje.CustomButton.Size = new System.Drawing.Size(21, 21);
-            this.TxBxMensaje.CustomButton.Style = MetroFramework.MetroColorStyle.Blue;
-            this.TxBxMensaje.CustomButton.TabIndex = 1;
-            this.TxBxMensaje.CustomButton.Theme = MetroFramework.MetroThemeStyle.Light;
-            this.TxBxMensaje.CustomButton.UseSelectable = true;
-            this.TxBxMensaje.CustomButton.Visible = false;
-            this.TxBxMensaje.Lines = new string[0];
-            this.TxBxMensaje.Location = new System.Drawing.Point(647, 202);
-            this.TxBxMensaje.MaxLength = 32767;
-            this.TxBxMensaje.Name = "TxBxMensaje";
-            this.TxBxMensaje.PasswordChar = '\0';
-            this.TxBxMensaje.ScrollBars = System.Windows.Forms.ScrollBars.None;
-            this.TxBxMensaje.SelectedText = "";
-            this.TxBxMensaje.SelectionLength = 0;
-            this.TxBxMensaje.SelectionStart = 0;
-            this.TxBxMensaje.ShortcutsEnabled = true;
-            this.TxBxMensaje.Size = new System.Drawing.Size(114, 23);
-            this.TxBxMensaje.TabIndex = 18;
-            this.TxBxMensaje.UseSelectable = true;
-            this.TxBxMensaje.WaterMarkColor = System.Drawing.Color.FromArgb(((int)(((byte)(109)))), ((int)(((byte)(109)))), ((int)(((byte)(109)))));
-            this.TxBxMensaje.WaterMarkFont = new System.Drawing.Font("Segoe UI", 12F, System.Drawing.FontStyle.Italic, System.Drawing.GraphicsUnit.Pixel);
+            this.TxbxMensaje.CustomButton.Image = null;
+            this.TxbxMensaje.CustomButton.Location = new System.Drawing.Point(92, 1);
+            this.TxbxMensaje.CustomButton.Name = "";
+            this.TxbxMensaje.CustomButton.Size = new System.Drawing.Size(21, 21);
+            this.TxbxMensaje.CustomButton.Style = MetroFramework.MetroColorStyle.Blue;
+            this.TxbxMensaje.CustomButton.TabIndex = 1;
+            this.TxbxMensaje.CustomButton.Theme = MetroFramework.MetroThemeStyle.Light;
+            this.TxbxMensaje.CustomButton.UseSelectable = true;
+            this.TxbxMensaje.CustomButton.Visible = false;
+            this.TxbxMensaje.Lines = new string[0];
+            this.TxbxMensaje.Location = new System.Drawing.Point(647, 253);
+            this.TxbxMensaje.MaxLength = 32767;
+            this.TxbxMensaje.Name = "TxbxMensaje";
+            this.TxbxMensaje.PasswordChar = '\0';
+            this.TxbxMensaje.ScrollBars = System.Windows.Forms.ScrollBars.None;
+            this.TxbxMensaje.SelectedText = "";
+            this.TxbxMensaje.SelectionLength = 0;
+            this.TxbxMensaje.SelectionStart = 0;
+            this.TxbxMensaje.ShortcutsEnabled = true;
+            this.TxbxMensaje.Size = new System.Drawing.Size(114, 23);
+            this.TxbxMensaje.TabIndex = 20;
+            this.TxbxMensaje.UseSelectable = true;
+            this.TxbxMensaje.WaterMarkColor = System.Drawing.Color.FromArgb(((int)(((byte)(109)))), ((int)(((byte)(109)))), ((int)(((byte)(109)))));
+            this.TxbxMensaje.WaterMarkFont = new System.Drawing.Font("Segoe UI", 12F, System.Drawing.FontStyle.Italic, System.Drawing.GraphicsUnit.Pixel);
             // 
             // LblMensaje
             // 
             this.LblMensaje.Anchor = ((System.Windows.Forms.AnchorStyles)((System.Windows.Forms.AnchorStyles.Top | System.Windows.Forms.AnchorStyles.Right)));
             this.LblMensaje.AutoSize = true;
-            this.LblMensaje.Location = new System.Drawing.Point(647, 180);
+            this.LblMensaje.Location = new System.Drawing.Point(647, 231);
             this.LblMensaje.Name = "LblMensaje";
             this.LblMensaje.Size = new System.Drawing.Size(92, 19);
-            this.LblMensaje.TabIndex = 17;
+            this.LblMensaje.TabIndex = 19;
             this.LblMensaje.Text = "<LblMensaje>";
+            // 
+            // TxBxUsuario
+            // 
+            this.TxBxUsuario.Anchor = ((System.Windows.Forms.AnchorStyles)((System.Windows.Forms.AnchorStyles.Top | System.Windows.Forms.AnchorStyles.Right)));
+            // 
+            // 
+            // 
+            this.TxBxUsuario.CustomButton.Image = null;
+            this.TxBxUsuario.CustomButton.Location = new System.Drawing.Point(92, 1);
+            this.TxBxUsuario.CustomButton.Name = "";
+            this.TxBxUsuario.CustomButton.Size = new System.Drawing.Size(21, 21);
+            this.TxBxUsuario.CustomButton.Style = MetroFramework.MetroColorStyle.Blue;
+            this.TxBxUsuario.CustomButton.TabIndex = 1;
+            this.TxBxUsuario.CustomButton.Theme = MetroFramework.MetroThemeStyle.Light;
+            this.TxBxUsuario.CustomButton.UseSelectable = true;
+            this.TxBxUsuario.CustomButton.Visible = false;
+            this.TxBxUsuario.Lines = new string[0];
+            this.TxBxUsuario.Location = new System.Drawing.Point(647, 202);
+            this.TxBxUsuario.MaxLength = 32767;
+            this.TxBxUsuario.Name = "TxBxUsuario";
+            this.TxBxUsuario.PasswordChar = '\0';
+            this.TxBxUsuario.ScrollBars = System.Windows.Forms.ScrollBars.None;
+            this.TxBxUsuario.SelectedText = "";
+            this.TxBxUsuario.SelectionLength = 0;
+            this.TxBxUsuario.SelectionStart = 0;
+            this.TxBxUsuario.ShortcutsEnabled = true;
+            this.TxBxUsuario.Size = new System.Drawing.Size(114, 23);
+            this.TxBxUsuario.TabIndex = 18;
+            this.TxBxUsuario.UseSelectable = true;
+            this.TxBxUsuario.WaterMarkColor = System.Drawing.Color.FromArgb(((int)(((byte)(109)))), ((int)(((byte)(109)))), ((int)(((byte)(109)))));
+            this.TxBxUsuario.WaterMarkFont = new System.Drawing.Font("Segoe UI", 12F, System.Drawing.FontStyle.Italic, System.Drawing.GraphicsUnit.Pixel);
+            // 
+            // LblUsuario
+            // 
+            this.LblUsuario.Anchor = ((System.Windows.Forms.AnchorStyles)((System.Windows.Forms.AnchorStyles.Top | System.Windows.Forms.AnchorStyles.Right)));
+            this.LblUsuario.AutoSize = true;
+            this.LblUsuario.Location = new System.Drawing.Point(647, 180);
+            this.LblUsuario.Name = "LblUsuario";
+            this.LblUsuario.Size = new System.Drawing.Size(88, 19);
+            this.LblUsuario.TabIndex = 17;
+            this.LblUsuario.Text = "<LblUsuario>";
             // 
             // LblFechaHasta
             // 
@@ -239,16 +240,6 @@
             this.metroGrid1.Size = new System.Drawing.Size(618, 308);
             this.metroGrid1.TabIndex = 12;
             // 
-            // BtnGuardar
-            // 
-            this.BtnGuardar.Anchor = ((System.Windows.Forms.AnchorStyles)((System.Windows.Forms.AnchorStyles.Bottom | System.Windows.Forms.AnchorStyles.Right)));
-            this.BtnGuardar.Location = new System.Drawing.Point(647, 348);
-            this.BtnGuardar.Name = "BtnGuardar";
-            this.BtnGuardar.Size = new System.Drawing.Size(114, 23);
-            this.BtnGuardar.TabIndex = 22;
-            this.BtnGuardar.Text = "<BtnGuardar>";
-            this.BtnGuardar.UseSelectable = true;
-            // 
             // LogDate
             // 
             this.LogDate.HeaderText = "Fecha";
@@ -279,6 +270,16 @@
             this.IpAddress.Name = "IpAddress";
             this.IpAddress.ReadOnly = true;
             // 
+            // BtnGuardar
+            // 
+            this.BtnGuardar.Anchor = ((System.Windows.Forms.AnchorStyles)((System.Windows.Forms.AnchorStyles.Bottom | System.Windows.Forms.AnchorStyles.Right)));
+            this.BtnGuardar.Location = new System.Drawing.Point(647, 348);
+            this.BtnGuardar.Name = "BtnGuardar";
+            this.BtnGuardar.Size = new System.Drawing.Size(114, 23);
+            this.BtnGuardar.TabIndex = 22;
+            this.BtnGuardar.Text = "<BtnGuardar>";
+            this.BtnGuardar.UseSelectable = true;
+            // 
             // FrmErrorLog
             // 
             this.AutoScaleDimensions = new System.Drawing.SizeF(6F, 13F);
@@ -286,17 +287,17 @@
             this.ClientSize = new System.Drawing.Size(776, 395);
             this.Controls.Add(this.BtnGuardar);
             this.Controls.Add(this.BtnFiltrar);
-            this.Controls.Add(this.TxbxExcepcion);
-            this.Controls.Add(this.LblExcepcion);
-            this.Controls.Add(this.TxBxMensaje);
+            this.Controls.Add(this.TxbxMensaje);
             this.Controls.Add(this.LblMensaje);
+            this.Controls.Add(this.TxBxUsuario);
+            this.Controls.Add(this.LblUsuario);
             this.Controls.Add(this.LblFechaHasta);
             this.Controls.Add(this.DateTimeHasta);
             this.Controls.Add(this.LblFechaDesde);
             this.Controls.Add(this.DateTimeDesde);
             this.Controls.Add(this.metroGrid1);
             this.Name = "FrmErrorLog";
-            this.Text = "<FrmErrorLog>";
+            this.Text = "<FrmLog de Errores>";
             this.Load += new System.EventHandler(this.FormErrorLog_Load);
             ((System.ComponentModel.ISupportInitialize)(this.metroGrid1)).EndInit();
             this.ResumeLayout(false);
@@ -307,10 +308,10 @@
         #endregion
 
         private MetroFramework.Controls.MetroButton BtnFiltrar;
-        private MetroFramework.Controls.MetroTextBox TxbxExcepcion;
-        private MetroFramework.Controls.MetroLabel LblExcepcion;
-        private MetroFramework.Controls.MetroTextBox TxBxMensaje;
+        private MetroFramework.Controls.MetroTextBox TxbxMensaje;
         private MetroFramework.Controls.MetroLabel LblMensaje;
+        private MetroFramework.Controls.MetroTextBox TxBxUsuario;
+        private MetroFramework.Controls.MetroLabel LblUsuario;
         private MetroFramework.Controls.MetroLabel LblFechaHasta;
         private MetroFramework.Controls.MetroDateTime DateTimeHasta;
         private MetroFramework.Controls.MetroLabel LblFechaDesde;

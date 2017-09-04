@@ -30,9 +30,9 @@ namespace SantaMaria.Servicios.Seguridad.UI
         {
             BtnHabilitar.Enabled = Servicios.Seguridad.Autorizacion.VerificarPermiso("Habilitar Usuario");
 
-            BtnDesHabilitar.Enabled = Servicios.Seguridad.Autorizacion.VerificarPermiso("Deshabilitar Usuario");
+            BtnDeshabilitar.Enabled = Servicios.Seguridad.Autorizacion.VerificarPermiso("Deshabilitar Usuario");
 
-            BtnEliminar.Enabled = Servicios.Seguridad.Autorizacion.VerificarPermiso("Eliminar Usuario");
+            BtnDelete.Enabled = Servicios.Seguridad.Autorizacion.VerificarPermiso("Eliminar Usuario");
         }
 
 
@@ -111,6 +111,37 @@ namespace SantaMaria.Servicios.Seguridad.UI
                 bll.EliminarUsuario(bll.ObtenerPorId(new Guid(listView1.SelectedItems[0].SubItems[3].Text)));
                 Bitacora.Bitacora.Instance.LogActividad("Eliminación del usuario " + listView1.SelectedItems[0].SubItems[0].Text, "Success");
                 ActualizarListview();
+            }
+            catch (BLLException ex)
+            {
+                FormMensaje.CrearError(ex.Message);
+            }
+        }
+
+        private void BtnGuardar_Click(object sender, EventArgs e)
+        {
+
+            List<string[]> items = new List<string[]>();
+            string[] item = new string[3];
+
+            item[0] = "Usuario";
+            item[1] = "Nombre";
+            item[2] = "Descripción";
+
+            items.Add(item);
+
+            foreach (ListViewItem row in listView1.Items)
+            {
+                item = new string[3];
+                item[0] = row.SubItems[0].Text;
+                item[1] = row.SubItems[1].Text;
+                item[2] = row.SubItems[2].Text;
+
+                items.Add(item);
+            }
+            try
+            {
+                Informes.CrearReporte(items.ToArray(), "Reporte de Usuarios");
             }
             catch (BLLException ex)
             {

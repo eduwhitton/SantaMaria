@@ -32,17 +32,19 @@
             this.BtnAsignar = new MetroFramework.Controls.MetroButton();
             this.LblUsuario = new MetroFramework.Controls.MetroLabel();
             this.TxbxUsuario = new MetroFramework.Controls.MetroTextBox();
-            this.PnlBuscar = new MetroFramework.Controls.MetroPanel();
-            this.LblO = new MetroFramework.Controls.MetroLabel();
+            this.BtnElegir = new MetroFramework.Controls.MetroButton();
+            this.CmbxPermisosPersonalizados = new MetroFramework.Controls.MetroComboBox();
             this.BtnBuscar = new MetroFramework.Controls.MetroButton();
             this.BtnCancelar = new MetroFramework.Controls.MetroButton();
             this.PnlAsignar = new MetroFramework.Controls.MetroPanel();
-            this.CmbxPermisosPersonalizados = new MetroFramework.Controls.MetroComboBox();
-            this.BtnElegir = new MetroFramework.Controls.MetroButton();
-            this.BtnCargarPermisosActuales = new MetroFramework.Controls.MetroButton();
             this.LblNombre = new MetroFramework.Controls.MetroLabel();
-            this.PnlBuscar.SuspendLayout();
+            this.tabControl1 = new MetroFramework.Controls.MetroTabControl();
+            this.tabPageUsuario = new MetroFramework.Controls.MetroTabPage();
+            this.tabPagePermisoPersonalizado = new MetroFramework.Controls.MetroTabPage();
             this.PnlAsignar.SuspendLayout();
+            this.tabControl1.SuspendLayout();
+            this.tabPageUsuario.SuspendLayout();
+            this.tabPagePermisoPersonalizado.SuspendLayout();
             this.SuspendLayout();
             // 
             // treeView1
@@ -59,7 +61,7 @@
             // 
             // BtnAsignar
             // 
-            this.BtnAsignar.Location = new System.Drawing.Point(121, 208);
+            this.BtnAsignar.Location = new System.Drawing.Point(4, 31);
             this.BtnAsignar.Name = "BtnAsignar";
             this.BtnAsignar.Size = new System.Drawing.Size(94, 23);
             this.BtnAsignar.TabIndex = 1;
@@ -70,7 +72,7 @@
             // LblUsuario
             // 
             this.LblUsuario.AutoSize = true;
-            this.LblUsuario.Location = new System.Drawing.Point(3, 9);
+            this.LblUsuario.Location = new System.Drawing.Point(2, 22);
             this.LblUsuario.Name = "LblUsuario";
             this.LblUsuario.Size = new System.Drawing.Size(88, 19);
             this.LblUsuario.TabIndex = 2;
@@ -91,7 +93,7 @@
             this.TxbxUsuario.CustomButton.UseSelectable = true;
             this.TxbxUsuario.CustomButton.Visible = false;
             this.TxbxUsuario.Lines = new string[0];
-            this.TxbxUsuario.Location = new System.Drawing.Point(97, 7);
+            this.TxbxUsuario.Location = new System.Drawing.Point(96, 20);
             this.TxbxUsuario.MaxLength = 32767;
             this.TxbxUsuario.Name = "TxbxUsuario";
             this.TxbxUsuario.PasswordChar = '\0';
@@ -106,39 +108,31 @@
             this.TxbxUsuario.WaterMarkColor = System.Drawing.Color.FromArgb(((int)(((byte)(109)))), ((int)(((byte)(109)))), ((int)(((byte)(109)))));
             this.TxbxUsuario.WaterMarkFont = new System.Drawing.Font("Segoe UI", 12F, System.Drawing.FontStyle.Italic, System.Drawing.GraphicsUnit.Pixel);
             // 
-            // PnlBuscar
+            // BtnElegir
             // 
-            this.PnlBuscar.Controls.Add(this.BtnElegir);
-            this.PnlBuscar.Controls.Add(this.CmbxPermisosPersonalizados);
-            this.PnlBuscar.Controls.Add(this.LblO);
-            this.PnlBuscar.Controls.Add(this.BtnBuscar);
-            this.PnlBuscar.Controls.Add(this.TxbxUsuario);
-            this.PnlBuscar.Controls.Add(this.LblUsuario);
-            this.PnlBuscar.HorizontalScrollbarBarColor = true;
-            this.PnlBuscar.HorizontalScrollbarHighlightOnWheel = false;
-            this.PnlBuscar.HorizontalScrollbarSize = 10;
-            this.PnlBuscar.Location = new System.Drawing.Point(312, 63);
-            this.PnlBuscar.Name = "PnlBuscar";
-            this.PnlBuscar.Size = new System.Drawing.Size(320, 90);
-            this.PnlBuscar.TabIndex = 4;
-            this.PnlBuscar.VerticalScrollbarBarColor = true;
-            this.PnlBuscar.VerticalScrollbarHighlightOnWheel = false;
-            this.PnlBuscar.VerticalScrollbarSize = 10;
+            this.BtnElegir.Location = new System.Drawing.Point(239, 20);
+            this.BtnElegir.Name = "BtnElegir";
+            this.BtnElegir.Size = new System.Drawing.Size(73, 23);
+            this.BtnElegir.TabIndex = 8;
+            this.BtnElegir.Text = "<BtnElegir>";
+            this.BtnElegir.UseSelectable = true;
+            this.BtnElegir.Click += new System.EventHandler(this.BtnElegir_Click);
             // 
-            // LblO
+            // CmbxPermisosPersonalizados
             // 
-            this.LblO.AutoSize = true;
-            this.LblO.Location = new System.Drawing.Point(43, 33);
-            this.LblO.Name = "LblO";
-            this.LblO.Size = new System.Drawing.Size(260, 19);
-            this.LblO.TabIndex = 5;
-            this.LblO.Text = "<LblOSeleccioneUnPermisoPersonalizado>";
+            this.CmbxPermisosPersonalizados.FormattingEnabled = true;
+            this.CmbxPermisosPersonalizados.ItemHeight = 23;
+            this.CmbxPermisosPersonalizados.Location = new System.Drawing.Point(0, 17);
+            this.CmbxPermisosPersonalizados.Name = "CmbxPermisosPersonalizados";
+            this.CmbxPermisosPersonalizados.Size = new System.Drawing.Size(233, 29);
+            this.CmbxPermisosPersonalizados.TabIndex = 7;
+            this.CmbxPermisosPersonalizados.UseSelectable = true;
             // 
             // BtnBuscar
             // 
-            this.BtnBuscar.Location = new System.Drawing.Point(242, 7);
+            this.BtnBuscar.Location = new System.Drawing.Point(241, 20);
             this.BtnBuscar.Name = "BtnBuscar";
-            this.BtnBuscar.Size = new System.Drawing.Size(75, 23);
+            this.BtnBuscar.Size = new System.Drawing.Size(71, 23);
             this.BtnBuscar.TabIndex = 4;
             this.BtnBuscar.Text = "<BtnBuscar>";
             this.BtnBuscar.UseSelectable = true;
@@ -146,7 +140,7 @@
             // 
             // BtnCancelar
             // 
-            this.BtnCancelar.Location = new System.Drawing.Point(221, 208);
+            this.BtnCancelar.Location = new System.Drawing.Point(104, 31);
             this.BtnCancelar.Name = "BtnCancelar";
             this.BtnCancelar.Size = new System.Drawing.Size(94, 23);
             this.BtnCancelar.TabIndex = 5;
@@ -157,49 +151,18 @@
             // PnlAsignar
             // 
             this.PnlAsignar.Controls.Add(this.LblNombre);
-            this.PnlAsignar.Controls.Add(this.BtnCargarPermisosActuales);
             this.PnlAsignar.Controls.Add(this.BtnCancelar);
             this.PnlAsignar.Controls.Add(this.BtnAsignar);
             this.PnlAsignar.HorizontalScrollbarBarColor = true;
             this.PnlAsignar.HorizontalScrollbarHighlightOnWheel = false;
             this.PnlAsignar.HorizontalScrollbarSize = 10;
-            this.PnlAsignar.Location = new System.Drawing.Point(312, 159);
+            this.PnlAsignar.Location = new System.Drawing.Point(312, 165);
             this.PnlAsignar.Name = "PnlAsignar";
-            this.PnlAsignar.Size = new System.Drawing.Size(320, 244);
+            this.PnlAsignar.Size = new System.Drawing.Size(320, 238);
             this.PnlAsignar.TabIndex = 6;
             this.PnlAsignar.VerticalScrollbarBarColor = true;
             this.PnlAsignar.VerticalScrollbarHighlightOnWheel = false;
             this.PnlAsignar.VerticalScrollbarSize = 10;
-            // 
-            // CmbxPermisosPersonalizados
-            // 
-            this.CmbxPermisosPersonalizados.FormattingEnabled = true;
-            this.CmbxPermisosPersonalizados.ItemHeight = 23;
-            this.CmbxPermisosPersonalizados.Location = new System.Drawing.Point(3, 55);
-            this.CmbxPermisosPersonalizados.Name = "CmbxPermisosPersonalizados";
-            this.CmbxPermisosPersonalizados.Size = new System.Drawing.Size(233, 29);
-            this.CmbxPermisosPersonalizados.TabIndex = 7;
-            this.CmbxPermisosPersonalizados.UseSelectable = true;
-            // 
-            // BtnElegir
-            // 
-            this.BtnElegir.Location = new System.Drawing.Point(242, 58);
-            this.BtnElegir.Name = "BtnElegir";
-            this.BtnElegir.Size = new System.Drawing.Size(75, 23);
-            this.BtnElegir.TabIndex = 8;
-            this.BtnElegir.Text = "<BtnElegir>";
-            this.BtnElegir.UseSelectable = true;
-            this.BtnElegir.Click += new System.EventHandler(this.BtnElegir_Click);
-            // 
-            // BtnCargarPermisosActuales
-            // 
-            this.BtnCargarPermisosActuales.Location = new System.Drawing.Point(3, 31);
-            this.BtnCargarPermisosActuales.Name = "BtnCargarPermisosActuales";
-            this.BtnCargarPermisosActuales.Size = new System.Drawing.Size(184, 23);
-            this.BtnCargarPermisosActuales.TabIndex = 6;
-            this.BtnCargarPermisosActuales.Text = "<BtnCargarPermisosActuales>";
-            this.BtnCargarPermisosActuales.UseSelectable = true;
-            this.BtnCargarPermisosActuales.Click += new System.EventHandler(this.BtnCargarPermisosActuales_Click);
             // 
             // LblNombre
             // 
@@ -210,21 +173,67 @@
             this.LblNombre.TabIndex = 7;
             this.LblNombre.Text = "Lblnombredelobjeto";
             // 
+            // tabControl1
+            // 
+            this.tabControl1.Controls.Add(this.tabPageUsuario);
+            this.tabControl1.Controls.Add(this.tabPagePermisoPersonalizado);
+            this.tabControl1.Location = new System.Drawing.Point(312, 63);
+            this.tabControl1.Name = "tabControl1";
+            this.tabControl1.SelectedIndex = 0;
+            this.tabControl1.Size = new System.Drawing.Size(320, 100);
+            this.tabControl1.TabIndex = 7;
+            this.tabControl1.UseSelectable = true;
+            // 
+            // tabPageUsuario
+            // 
+            this.tabPageUsuario.Controls.Add(this.TxbxUsuario);
+            this.tabPageUsuario.Controls.Add(this.LblUsuario);
+            this.tabPageUsuario.Controls.Add(this.BtnBuscar);
+            this.tabPageUsuario.HorizontalScrollbarBarColor = true;
+            this.tabPageUsuario.HorizontalScrollbarHighlightOnWheel = false;
+            this.tabPageUsuario.HorizontalScrollbarSize = 10;
+            this.tabPageUsuario.Location = new System.Drawing.Point(4, 38);
+            this.tabPageUsuario.Name = "tabPageUsuario";
+            this.tabPageUsuario.Size = new System.Drawing.Size(312, 58);
+            this.tabPageUsuario.TabIndex = 0;
+            this.tabPageUsuario.Text = "<FrmUsuarios>";
+            this.tabPageUsuario.VerticalScrollbarBarColor = true;
+            this.tabPageUsuario.VerticalScrollbarHighlightOnWheel = false;
+            this.tabPageUsuario.VerticalScrollbarSize = 10;
+            // 
+            // tabPagePermisoPersonalizado
+            // 
+            this.tabPagePermisoPersonalizado.Controls.Add(this.BtnElegir);
+            this.tabPagePermisoPersonalizado.Controls.Add(this.CmbxPermisosPersonalizados);
+            this.tabPagePermisoPersonalizado.HorizontalScrollbarBarColor = true;
+            this.tabPagePermisoPersonalizado.HorizontalScrollbarHighlightOnWheel = false;
+            this.tabPagePermisoPersonalizado.HorizontalScrollbarSize = 10;
+            this.tabPagePermisoPersonalizado.Location = new System.Drawing.Point(4, 38);
+            this.tabPagePermisoPersonalizado.Name = "tabPagePermisoPersonalizado";
+            this.tabPagePermisoPersonalizado.Size = new System.Drawing.Size(312, 58);
+            this.tabPagePermisoPersonalizado.TabIndex = 1;
+            this.tabPagePermisoPersonalizado.Text = "<LblPermisos>";
+            this.tabPagePermisoPersonalizado.VerticalScrollbarBarColor = true;
+            this.tabPagePermisoPersonalizado.VerticalScrollbarHighlightOnWheel = false;
+            this.tabPagePermisoPersonalizado.VerticalScrollbarSize = 10;
+            // 
             // FrmAsignarPermisos
             // 
             this.AutoScaleDimensions = new System.Drawing.SizeF(6F, 13F);
             this.AutoScaleMode = System.Windows.Forms.AutoScaleMode.Font;
             this.ClientSize = new System.Drawing.Size(647, 426);
+            this.Controls.Add(this.tabControl1);
             this.Controls.Add(this.PnlAsignar);
-            this.Controls.Add(this.PnlBuscar);
             this.Controls.Add(this.treeView1);
             this.Name = "FrmAsignarPermisos";
             this.Text = "<FrmAsignarPermisos>";
             this.Load += new System.EventHandler(this.FrmAsignarPermisos_Load);
-            this.PnlBuscar.ResumeLayout(false);
-            this.PnlBuscar.PerformLayout();
             this.PnlAsignar.ResumeLayout(false);
             this.PnlAsignar.PerformLayout();
+            this.tabControl1.ResumeLayout(false);
+            this.tabPageUsuario.ResumeLayout(false);
+            this.tabPageUsuario.PerformLayout();
+            this.tabPagePermisoPersonalizado.ResumeLayout(false);
             this.ResumeLayout(false);
 
         }
@@ -235,14 +244,14 @@
         private MetroFramework.Controls.MetroButton BtnAsignar;
         private MetroFramework.Controls.MetroLabel LblUsuario;
         private MetroFramework.Controls.MetroTextBox TxbxUsuario;
-        private MetroFramework.Controls.MetroPanel PnlBuscar;
         private MetroFramework.Controls.MetroButton BtnBuscar;
         private MetroFramework.Controls.MetroButton BtnCancelar;
         private MetroFramework.Controls.MetroPanel PnlAsignar;
-        private MetroFramework.Controls.MetroLabel LblO;
         private MetroFramework.Controls.MetroButton BtnElegir;
         private MetroFramework.Controls.MetroComboBox CmbxPermisosPersonalizados;
         private MetroFramework.Controls.MetroLabel LblNombre;
-        private MetroFramework.Controls.MetroButton BtnCargarPermisosActuales;
+        private MetroFramework.Controls.MetroTabControl tabControl1;
+        private MetroFramework.Controls.MetroTabPage tabPageUsuario;
+        private MetroFramework.Controls.MetroTabPage tabPagePermisoPersonalizado;
     }
 }

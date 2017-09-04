@@ -101,6 +101,26 @@ namespace SantaMaria.Servicios.Excepciones
             ImprimirDataGrid();
         }
 
+        private void BtnFiltrar_Click_1(object sender, EventArgs e)
+        {
+            DAOErrorLog dao = new DAOErrorLog();
+            try
+            {
+                List<ErrorLogRow> lista = dao.ObtenerErrorLogFiltrado(
+                DateTimeDesde.Value,
+                DateTimeHasta.Value,
+                TxBxUsuario.Text.Trim(),
+                TxbxMensaje.Text.Trim()
+                );
+
+                LlenarDataGrid(lista);
+            }
+            catch (BLLException ex)
+            {
+                FormMensaje.CrearError(ex.Message);
+            }
+        }
+
 
     }
 }

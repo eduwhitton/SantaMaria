@@ -76,6 +76,18 @@ namespace SantaMaria.Servicios.MultiIdiioma
                         item.Text = dic[item.Text]; //remplazar
                 }
             }
+            else if (control is TabControl)
+            {
+                foreach (TabPage item in ((TabControl)control).TabPages)
+                {
+                    if (dic.ContainsKey(item.Text)) ///buscar texto a remplazar
+                        item.Text = dic[item.Text]; //remplazar
+                } 
+                foreach (Control child in control.Controls)
+                {
+                    Traducir(child, dic);
+                }
+            }
             else foreach (Control child in control.Controls) //controles intraducibles
                 {
                     Traducir(child, dic);

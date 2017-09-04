@@ -74,7 +74,7 @@ namespace SantaMaria.Servicios.Excepciones
             comando.Parameters.AddWithValue("@FechaDesde", fechaDesde.Date);
             comando.Parameters.AddWithValue("@FechaHasta", fechaHasta.Date.AddDays(1)); ///Corrección para que tome hasta el final del día (o el comienzo del siguiente)
             comando.Parameters.AddWithValue("@Usuario", usuario);
-            comando.Parameters.AddWithValue("@Actividad", actividad);
+            comando.Parameters.AddWithValue("@Mensaje", actividad);
             SqlDataReader dr;
 
             try

@@ -8,6 +8,7 @@ using iTextSharp.text.pdf;
 using System.IO;
 using System.Windows.Forms;
 using SantaMaria.Servicios.UI;
+using SantaMaria.Servicios.Excepciones;
 namespace SantaMaria.Servicios
 {
     public static class Informes
@@ -20,7 +21,7 @@ namespace SantaMaria.Servicios
         public static void CrearReporte(string[][] arr, string titulo)
         {
 
-            SaveFileDialog sfd = new SaveFileDialog(    );
+            SaveFileDialog sfd = new SaveFileDialog();
 
             sfd.AddExtension = true;
             sfd.DefaultExt = ".pdf";
@@ -28,14 +29,24 @@ namespace SantaMaria.Servicios
             sfd.Filter = "Archivos pdf (*.pdf)|*.pdf";
             sfd.FilterIndex = 0;
             sfd.OverwritePrompt = true;
-
+            sfd.InitialDirectory = Environment.GetFolderPath(Environment.SpecialFolder.Desktop);
 
             DialogResult resultado = sfd.ShowDialog();
 
+            PdfWriter writer;
             if (resultado == System.Windows.Forms.DialogResult.Cancel) return;
 
             Document doc = new Document(PageSize.A4);
-            PdfWriter writer = PdfWriter.GetInstance(doc, sfd.OpenFile());
+            try
+            {
+                writer = PdfWriter.GetInstance(doc, sfd.OpenFile());
+            }
+            catch (Exception ex)
+            {
+                doc.Close();
+
+                throw new BLLException("Cerrar al archivo antes de intentar sobreescribirlo.",ex);
+            }
 
             doc.AddTitle(titulo);
             doc.AddCreator("Santa María");
@@ -50,9 +61,8 @@ namespace SantaMaria.Servicios
             doc.Add(Chunk.NEWLINE);
 
             //Tabla
-            PdfPTable tabla = new PdfPTable(5);
+            PdfPTable tabla = new PdfPTable(arr[0].Length);
             tabla.WidthPercentage = 100;
-            tabla.SetWidths(new int[] { 20, 10, 30, 25, 15 });
 
             PdfPCell celda;
             // Columnas
