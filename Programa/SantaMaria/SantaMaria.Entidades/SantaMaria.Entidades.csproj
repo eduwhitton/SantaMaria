@@ -45,7 +45,7 @@
     <Compile Include="IEntidadBase.cs" />
     <Compile Include="Paciente.cs" />
     <Compile Include="Persona.cs" />
-    <Compile Include="Profesion.cs" />
+    <Compile Include="Especialidad.cs" />
     <Compile Include="Profesional.cs" />
     <Compile Include="Properties\AssemblyInfo.cs" />
   </ItemGroup>

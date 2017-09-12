@@ -6,7 +6,13 @@ using System.Threading.Tasks;
 
 namespace SantaMaria.Entidades
 {
-    class HistoriaClinica
+    public class HistoriaClinica : EntidadBase
     {
+        public int nroMatricula;
+        public int dni;
+        public DateTime fecha;
+        public int especialidad;
+        public string diagnostico;
+        public string medicamentos;
     }
 }

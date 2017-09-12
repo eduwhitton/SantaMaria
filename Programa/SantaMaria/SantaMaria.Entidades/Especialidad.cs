@@ -6,7 +6,9 @@ using System.Threading.Tasks;
 
 namespace SantaMaria.Entidades
 {
-    class Profesion
+    public class Especialidad : EntidadBase
     {
+        public int CodEspecialidad;
+        public string Descripcion;
     }
 }

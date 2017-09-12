@@ -13,7 +13,7 @@ namespace SantaMaria.DAL.Mapeadores
     /// </summary>
     public class MapeadorEntidad
     {
-        public static void CrearEntidad(SqlDataReader dr, ref EntidadBase entidad)
+        public static void RellenarEntidad(SqlDataReader dr, ref EntidadBase entidad)
         {
             entidad.Id = dr.GetGuid(dr.GetOrdinal("ID"));
             entidad.CreatedOn = dr.GetDateTime(dr.GetOrdinal("CreatedOn"));

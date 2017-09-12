@@ -11,52 +11,33 @@ using SantaMaria.Servicios.Excepciones;
 
 namespace SantaMaria.BLL
 {
-    /// <summary>
-    /// Clase encargada de la logica de negocios
-    /// </summary>
-    public class BLLPersona
+    public class BLLPaciente
     {
-        public void AgregarPersona(Persona persona)
+        public void AgregarPaciente(Paciente paciente)
         {
             using (TransactionScope transaction = new TransactionScope())
             {
-                DAL.DAO.DAOPersona dao = new DAL.DAO.DAOPersona();
+                DAL.DAO.DAOPaciente dao = new DAL.DAO.DAOPaciente();
                 try
                 {
-                    dao.AgregarPersona(persona);
+                    dao.AgregarPaciente(paciente);
                     transaction.Complete();
                 }
                 catch (Exception ex)
                 {
                     throw new BLLException("Error al acceder a la base de datos.", ex);
                 }
-                
+
             }
         }
-        public void EliminarPersona(Persona persona)
+        public void EliminarPaciente(Paciente paciente)
         {
             using (TransactionScope transaction = new TransactionScope())
             {
-                DAL.DAO.DAOPersona dao = new DAL.DAO.DAOPersona();
+                DAL.DAO.DAOPaciente dao = new DAL.DAO.DAOPaciente();
                 try
                 {
-                    dao.EliminarPersona(persona);
-                    transaction.Complete();
-                }
-                catch (Exception ex)
-                {
-                    throw new BLLException("Error al acceder a la base de datos.", ex);
-                }
-            }
-        }
-        public void ModificarPersona(Persona persona)
-        {
-            using (TransactionScope transaction = new TransactionScope())
-            {
-                DAL.DAO.DAOPersona dao = new DAL.DAO.DAOPersona();
-                try
-                {
-                    dao.ModificarPersona(persona); 
+                    dao.EliminarPaciente(paciente);
                     transaction.Complete();
                 }
                 catch (Exception ex)
@@ -65,17 +46,15 @@ namespace SantaMaria.BLL
                 }
             }
         }
-        public Persona ObtenerPorDNI(int dni)
+        public void ModificarPaciente(Paciente paciente)
         {
             using (TransactionScope transaction = new TransactionScope())
             {
-                Persona persona;
-                DAL.DAO.DAOPersona dao = new DAL.DAO.DAOPersona();
+                DAL.DAO.DAOPaciente dao = new DAL.DAO.DAOPaciente();
                 try
                 {
-                    persona = dao.ObtenerPorDNI(dni);
+                    dao.ModificarPaciente(paciente);
                     transaction.Complete();
-                    return persona;
                 }
                 catch (Exception ex)
                 {
@@ -83,17 +62,17 @@ namespace SantaMaria.BLL
                 }
             }
         }
-        public Persona ObtenerPorId(Guid id)
+        public Paciente ObtenerPorDNI(int dni)
         {
             using (TransactionScope transaction = new TransactionScope())
             {
-                Persona persona;
-                DAL.DAO.DAOPersona dao = new DAL.DAO.DAOPersona();
+                Paciente paciente;
+                DAL.DAO.DAOPaciente dao = new DAL.DAO.DAOPaciente();
                 try
                 {
-                    persona = dao.ObtenerPorID(id); 
+                    paciente = dao.ObtenerPorDNI(dni);
                     transaction.Complete();
-                    return persona;
+                    return paciente;
                 }
                 catch (Exception ex)
                 {
@@ -101,15 +80,33 @@ namespace SantaMaria.BLL
                 }
             }
         }
-        public List<Persona> ObtenerTodo()
+        public Paciente ObtenerPorId(Guid id)
         {
             using (TransactionScope transaction = new TransactionScope())
             {
-                List<Persona> lista;
-                DAL.DAO.DAOPersona dao = new DAL.DAO.DAOPersona();
+                Paciente paciente;
+                DAL.DAO.DAOPaciente dao = new DAL.DAO.DAOPaciente();
                 try
                 {
-                    lista = dao.ObtenerTodo(); 
+                    paciente = dao.ObtenerPorID(id);
+                    transaction.Complete();
+                    return paciente;
+                }
+                catch (Exception ex)
+                {
+                    throw new BLLException("Error al acceder a la base de datos.", ex);
+                }
+            }
+        }
+        public List<Paciente> ObtenerTodo()
+        {
+            using (TransactionScope transaction = new TransactionScope())
+            {
+                List<Paciente> lista;
+                DAL.DAO.DAOPaciente dao = new DAL.DAO.DAOPaciente();
+                try
+                {
+                    lista = dao.ObtenerTodo();
                     transaction.Complete();
                     return lista;
                 }

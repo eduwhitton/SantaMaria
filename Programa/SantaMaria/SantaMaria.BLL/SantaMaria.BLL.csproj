@@ -42,6 +42,8 @@
   <ItemGroup>
     <Compile Include="BLLBase.cs" />
     <Compile Include="BLLPersona.cs" />
+    <Compile Include="BLLPaciente.cs" />
+    <Compile Include="BLLProfesional.cs" />
     <Compile Include="Properties\AssemblyInfo.cs" />
   </ItemGroup>
   <ItemGroup>
@@ -52,6 +54,10 @@
     <ProjectReference Include="..\SantaMaria.Entidades\SantaMaria.Entidades.csproj">
       <Project>{6beb2d29-ebe7-4498-a171-37b6b9650693}</Project>
       <Name>SantaMaria.Entidades</Name>
+    </ProjectReference>
+    <ProjectReference Include="..\SantaMaria.Servicios\SantaMaria.Servicios.csproj">
+      <Project>{afe33dc3-8d74-4675-8426-6c23eb48f7e0}</Project>
+      <Name>SantaMaria.Servicios</Name>
     </ProjectReference>
   </ItemGroup>
   <Import Project="$(MSBuildToolsPath)\Microsoft.CSharp.targets" />
