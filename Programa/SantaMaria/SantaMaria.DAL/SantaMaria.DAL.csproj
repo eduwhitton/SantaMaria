@@ -40,13 +40,17 @@
     <Reference Include="System.Xml" />
   </ItemGroup>
   <ItemGroup>
+    <Compile Include="DAO\DAODisponibilidad.cs" />
+    <Compile Include="DAO\DAOEspecialidad.cs" />
+    <Compile Include="DAO\DAOCobertura.cs" />
+    <Compile Include="DAO\DAOEspecialidadProfesional.cs" />
     <Compile Include="DAO\DAOPaciente.cs" />
     <Compile Include="DAO\DAOPersona.cs" />
     <Compile Include="DAO\DAOProfesional.cs" />
     <Compile Include="DAO\DAOHistoriaClinica.cs" />
+    <Compile Include="DAO\DAOTurno.cs" />
     <Compile Include="Mapeadores\MapeadorEntidad.cs" />
-    <Compile Include="Mapeadores\PacienteMapeador.cs" />
-    <Compile Include="Mapeadores\PersonaMapeador.cs" />
+    <Compile Include="Mapeadores\Mapeador.cs" />
     <Compile Include="Properties\AssemblyInfo.cs" />
     <Compile Include="Properties\Settings.Designer.cs">
       <AutoGen>True</AutoGen>

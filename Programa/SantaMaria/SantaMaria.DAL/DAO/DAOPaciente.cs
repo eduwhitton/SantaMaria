@@ -26,6 +26,7 @@ namespace SantaMaria.DAL.DAO
             comando.Parameters.AddWithValue("@DNI", paciente.DNI);
             comando.Parameters.AddWithValue("@Cod_Cobertura", paciente.CodCobertura);
             comando.Parameters.AddWithValue("@Direccion", paciente.Direccion);
+            comando.Parameters.AddWithValue("@Telefono", paciente.Telefono);
             comando.Parameters.AddWithValue("@CreatedOn", DateTime.Now);
             comando.Parameters.AddWithValue("@CreatedBy", Contexto.UsuarioActual.Id);
             comando.Parameters.AddWithValue("@Deleted", false);
@@ -196,6 +197,7 @@ namespace SantaMaria.DAL.DAO
             comando.Parameters.AddWithValue("@DNI", paciente.DNI);
             comando.Parameters.AddWithValue("@Cod_Cobertura", paciente.CodCobertura);
             comando.Parameters.AddWithValue("@Direccion", paciente.Direccion);
+            comando.Parameters.AddWithValue("@Telefono", paciente.Telefono);
             comando.Parameters.AddWithValue("@ChangedOn", DateTime.Now);
             comando.Parameters.AddWithValue("@ChangedBy", Contexto.UsuarioActual.Id);
 

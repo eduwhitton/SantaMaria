@@ -36,6 +36,13 @@ namespace SantaMaria.Entidades
             set { _direccion = value; }
         }
 
+
+        private int _telefono;
+        public int Telefono
+        {
+            get { return _telefono; }
+            set { _telefono = value; }
+        }
         
 
     }

@@ -10,24 +10,21 @@ using SantaMaria.Servicios.Excepciones;
 
 namespace SantaMaria.DAL.DAO
 {
-    public class DAOProfesional
+    public class DAOEspecialidad
     {
-
-        public void AgregarProfesional(Profesional profesional)
+        public void AgregarEspecialidad(Especialidad especialidad)
         {
             SqlConnection conexion = Conexion.Instancia;
 
-            string query = "dbo.ProfesionalesAgregar";
+            string query = "[dbo].[EspecialidadesAgregar]";
+
 
             SqlCommand comando = new SqlCommand(query, conexion);
             comando.CommandType = System.Data.CommandType.StoredProcedure;
 
             comando.Parameters.AddWithValue("@ID", Guid.NewGuid());
-            comando.Parameters.AddWithValue("@Nombre", profesional.Nombre);
-            comando.Parameters.AddWithValue("@DNI", profesional.DNI);
-            comando.Parameters.AddWithValue("@Nro_Matricula", profesional.NroMatricula);
-            comando.Parameters.AddWithValue("@Direccion", profesional.Direccion);
-            comando.Parameters.AddWithValue("@Telefono", profesional.Telefono);
+            comando.Parameters.AddWithValue("@Cod_Especialidad", especialidad.CodEspecialidad);
+            comando.Parameters.AddWithValue("@Descripcion", especialidad.Descripcion);
             comando.Parameters.AddWithValue("@CreatedOn", DateTime.Now);
             comando.Parameters.AddWithValue("@CreatedBy", Contexto.UsuarioActual.Id);
             comando.Parameters.AddWithValue("@Deleted", false);
@@ -45,20 +42,21 @@ namespace SantaMaria.DAL.DAO
             {
                 conexion.Close();
 
-                throw new DALException("Error al crear una profesional.", ex);
+                throw new DALException("Error al crear una especialidad.", ex);
             }
         }
 
-        public Profesional ObtenerPorDNI(int dni)
+        public Especialidad ObtenerPorCodEspecialidad(int CodEspecialidad)
         {
             SqlConnection conexion = Conexion.Instancia;
 
-            string query = "dbo.ProfesionalesObtenerPorDni";
+            string query = "[dbo].[EspecialidadesPorCod_Especialidad]";
 
             SqlCommand comando = new SqlCommand(query, conexion);
             comando.CommandType = System.Data.CommandType.StoredProcedure;
 
-            comando.Parameters.AddWithValue("@DNI", dni);
+            comando.Parameters.AddWithValue("@Cod_Especialidad", CodEspecialidad);
+
 
             SqlDataReader dr;
 
@@ -70,37 +68,41 @@ namespace SantaMaria.DAL.DAO
 
                 dr.Read();
 
-                EntidadBase entidad = new Profesional();
+                EntidadBase entidad = new Especialidad();
 
                 Mapeadores.MapeadorEntidad.RellenarEntidad(dr, ref entidad);
 
-                Profesional profesional = entidad as Profesional;
+                Especialidad especialidad = entidad as Especialidad;
 
-                Mapeador.DataReaderAProfesional(dr, ref profesional);
+                Mapeador.DataReaderAEspecialidad(dr, ref especialidad);
 
                 conexion.Close();
 
-                return profesional;
+                return especialidad;
+
             }
             catch (Exception ex)
             {
                 conexion.Close();
 
-                throw new DALException("Error al crear obtener una profesional por dni.", ex);
+                throw new DALException("Error al crear obtener una especialidad por Código de especialidad.", ex);
             }
+
+
         }
 
-        public Profesional ObtenerPorID(Guid id)
+        public Especialidad ObtenerPorID(Guid id)
         {
             SqlConnection conexion = Conexion.Instancia;
 
-            string query = "dbo.ProfesionalesObtenerPorId";
+            string query = "[dbo].[EspecialidadesObtenerPorId]";
 
             SqlCommand comando = new SqlCommand(query, conexion);
             comando.CommandType = System.Data.CommandType.StoredProcedure;
 
             comando.Parameters.AddWithValue("@ID", id);
 
+
             SqlDataReader dr;
 
             try
@@ -111,33 +113,34 @@ namespace SantaMaria.DAL.DAO
 
                 dr.Read();
 
-                EntidadBase entidad = new Profesional();
+                EntidadBase entidad = new Especialidad();
 
                 Mapeadores.MapeadorEntidad.RellenarEntidad(dr, ref entidad);
 
-                Profesional profesional = entidad as Profesional;
+                Especialidad especialidad = entidad as Especialidad;
 
-                Mapeador.DataReaderAProfesional(dr, ref profesional);
+                Mapeador.DataReaderAEspecialidad(dr, ref especialidad);
 
                 conexion.Close();
 
-                return profesional;
+                return especialidad;
 
             }
             catch (Exception ex)
             {
                 conexion.Close();
 
-                throw new DALException("Error al crear obtener una profesional por Id.", ex);
+                throw new DALException("Error al obtener una especialidad por id.", ex);
             }
+
+
         }
 
-        public List<Profesional> ObtenerTodo()
+        public List<Especialidad> ObtenerTodo()
         {
-
             SqlConnection conexion = Conexion.Instancia;
 
-            string query = "dbo.ProfesionalesObtener200";
+            string query = "dbo.EspecialidadsObtener200";
 
             SqlCommand comando = new SqlCommand(query, conexion);
             comando.CommandType = System.Data.CommandType.StoredProcedure;
@@ -151,22 +154,23 @@ namespace SantaMaria.DAL.DAO
 
                 dr = comando.ExecuteReader();
 
-                List<Profesional> lista = new List<Profesional>();
+                List<Especialidad> lista = new List<Especialidad>();
 
-                Profesional profesional;
+                Especialidad especialidad;
                 EntidadBase entidad;
 
                 while (dr.Read())
                 {
-                    entidad = new Profesional();
+
+                    entidad = new Especialidad();
 
                     Mapeadores.MapeadorEntidad.RellenarEntidad(dr, ref entidad);
 
-                    profesional = entidad as Profesional;
+                    especialidad = entidad as Especialidad;
 
-                    Mapeador.DataReaderAProfesional(dr, ref profesional);
+                    Mapeador.DataReaderAEspecialidad(dr, ref especialidad);
 
-                    lista.Add(profesional);
+                    lista.Add(especialidad);
                 }
 
                 conexion.Close();
@@ -178,27 +182,23 @@ namespace SantaMaria.DAL.DAO
             {
                 conexion.Close();
 
-                throw new DALException("Error al obtener todos los profesionals.", ex);
+                throw new DALException("Error al obtener todas las especialidades.", ex);
             }
 
         }
 
-        public void ModificarProfesional(Profesional profesional)
+        public void ModificarEspecialidad(Especialidad especialidad)
         {
             SqlConnection conexion = Conexion.Instancia;
 
-            string query = "dbo.ProfesionalesModificar";
+            string query = "[dbo].[EspecialidadesModificar]";
 
             SqlCommand comando = new SqlCommand(query, conexion);
             comando.CommandType = System.Data.CommandType.StoredProcedure;
 
-
-            comando.Parameters.AddWithValue("@ID", profesional.Id);
-            comando.Parameters.AddWithValue("@Nombre", profesional.Nombre);
-            comando.Parameters.AddWithValue("@DNI", profesional.DNI);
-            comando.Parameters.AddWithValue("@Nro_Matricula", profesional.NroMatricula);
-            comando.Parameters.AddWithValue("@Direccion", profesional.Direccion);
-            comando.Parameters.AddWithValue("@Telefono", profesional.Telefono);
+            comando.Parameters.AddWithValue("@ID", especialidad.Id);
+            comando.Parameters.AddWithValue("@Cod_Especialidad", especialidad.CodEspecialidad);
+            comando.Parameters.AddWithValue("@Descripcion", especialidad.Descripcion);
             comando.Parameters.AddWithValue("@ChangedOn", DateTime.Now);
             comando.Parameters.AddWithValue("@ChangedBy", Contexto.UsuarioActual.Id);
 
@@ -215,21 +215,20 @@ namespace SantaMaria.DAL.DAO
             {
                 conexion.Close();
 
-                throw new DALException("Error al modificar una profesional.", ex);
+                throw new DALException("Error al modificar una especialidad.", ex);
             }
         }
 
-        public void EliminarProfesional(Profesional profesional)
+        public void EliminarEspecialidad(Especialidad especialidad)
         {
-
             SqlConnection conexion = Conexion.Instancia;
 
-            string query = "dbo.ProfesionalesEliminar";
+            string query = "[dbo].[EspecialidadesEliminar]";
 
             SqlCommand comando = new SqlCommand(query, conexion);
             comando.CommandType = System.Data.CommandType.StoredProcedure;
 
-            comando.Parameters.AddWithValue("@ID", profesional.Id);
+            comando.Parameters.AddWithValue("@ID", especialidad.Id);
             comando.Parameters.AddWithValue("@DeletedOn", DateTime.Now);
             comando.Parameters.AddWithValue("@DeletedBy", Contexto.UsuarioActual.Id);
 
@@ -245,9 +244,8 @@ namespace SantaMaria.DAL.DAO
             {
                 conexion.Close();
 
-                throw new DALException("Error al eliminar una profesional.", ex);
+                throw new DALException("Error al eliminar una especialidad.", ex);
             }
         }
-
     }
 }

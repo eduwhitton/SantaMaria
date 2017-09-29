@@ -41,9 +41,15 @@
   </ItemGroup>
   <ItemGroup>
     <Compile Include="BLLBase.cs" />
+    <Compile Include="BLLCobertura.cs" />
+    <Compile Include="BLLDisponibilidad.cs" />
+    <Compile Include="BLLEspecialidad.cs" />
+    <Compile Include="BLLEspecialidadProfesional.cs" />
+    <Compile Include="BLLHistoriaClinica.cs" />
     <Compile Include="BLLPersona.cs" />
     <Compile Include="BLLPaciente.cs" />
     <Compile Include="BLLProfesional.cs" />
+    <Compile Include="BLLTurno.cs" />
     <Compile Include="Properties\AssemblyInfo.cs" />
   </ItemGroup>
   <ItemGroup>
