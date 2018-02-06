@@ -37,8 +37,8 @@ namespace SantaMaria.Entidades
         }
 
 
-        private int _telefono;
-        public int Telefono
+        private string _telefono;
+        public string Telefono
         {
             get { return _telefono; }
             set { _telefono = value; }

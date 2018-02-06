@@ -16,7 +16,7 @@ namespace SantaMaria.DAL
             persona.Nombre = dr.GetString(dr.GetOrdinal("Nombre"));
             persona.DNI = dr.GetInt32(dr.GetOrdinal("DNI"));
             persona.Direccion = dr.GetString(dr.GetOrdinal("Direccion"));
-            persona.Telefono = dr.GetInt32(dr.GetOrdinal("Telefono"));
+            persona.Telefono = dr.GetString(dr.GetOrdinal("Telefono"));
         }
 
         public static void DataReaderAPaciente(SqlDataReader dr, ref Persona persona)
@@ -85,9 +85,9 @@ namespace SantaMaria.DAL
         {
             disponibilidad.nroMatricula = dr.GetInt32(dr.GetOrdinal("Nro_Matricula"));
             disponibilidad.codEspecialidad = dr.GetInt32(dr.GetOrdinal("Cod_Especialidad"));
-            disponibilidad.dia = dr.GetString(dr.GetOrdinal("Dia"));
-            disponibilidad.horaInicio = dr.GetDateTime(dr.GetOrdinal("HoraInicio"));
-            disponibilidad.horaFinal = dr.GetDateTime(dr.GetOrdinal("HoraFinal"));
+            disponibilidad.diaDeLaSemana = dr.GetInt32(dr.GetOrdinal("Dia_Semana"));
+            disponibilidad.horaInicio = dr.GetTimeSpan(dr.GetOrdinal("Hora_Inicio"));
+            disponibilidad.horaFinal = dr.GetTimeSpan(dr.GetOrdinal("Hora_Final"));
         }
     }
 }

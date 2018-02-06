@@ -13,5 +13,7 @@ namespace SantaMaria.Entidades
         public DateTime fecha;
         public int codEspecialidad;
         public bool sobreturno;
+        public bool confirmado;
+        public bool asistido;
     }
 }

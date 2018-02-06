@@ -23,7 +23,6 @@ namespace SantaMaria.DAL.DAO
             comando.CommandType = System.Data.CommandType.StoredProcedure;
 
             comando.Parameters.AddWithValue("@ID", Guid.NewGuid());
-            comando.Parameters.AddWithValue("@Cod_Cobertura", cobertura.CodCobertura);
             comando.Parameters.AddWithValue("@Descripcion", cobertura.Descripcion);
             comando.Parameters.AddWithValue("@CreatedOn", DateTime.Now);
             comando.Parameters.AddWithValue("@CreatedBy", Contexto.UsuarioActual.Id);

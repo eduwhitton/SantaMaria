@@ -25,9 +25,9 @@ namespace SantaMaria.DAL.DAO
             comando.Parameters.AddWithValue("@ID", Guid.NewGuid());
             comando.Parameters.AddWithValue("@Nro_Matricula", disponibilidad.nroMatricula);
             comando.Parameters.AddWithValue("@Cod_Especialidad", disponibilidad.codEspecialidad);
-            comando.Parameters.AddWithValue("@Día_Atencion", disponibilidad.dia);
-            comando.Parameters.AddWithValue("@HoraInicio", disponibilidad.horaInicio);
-            comando.Parameters.AddWithValue("@HoraFinal", disponibilidad.horaFinal);
+            comando.Parameters.AddWithValue("@Dia_Semana", disponibilidad.diaDeLaSemana);
+            comando.Parameters.AddWithValue("@Hora_Inicio", disponibilidad.horaInicio);
+            comando.Parameters.AddWithValue("@Hora_Final", disponibilidad.horaFinal);
             comando.Parameters.AddWithValue("@CreatedOn", DateTime.Now);
             comando.Parameters.AddWithValue("@CreatedBy", Contexto.UsuarioActual.Id);
             comando.Parameters.AddWithValue("@Deleted", false);
@@ -203,9 +203,9 @@ namespace SantaMaria.DAL.DAO
             comando.Parameters.AddWithValue("@ID", Guid.NewGuid());
             comando.Parameters.AddWithValue("@Nro_Matricula", disponibilidad.nroMatricula);
             comando.Parameters.AddWithValue("@Cod_Especialidad", disponibilidad.codEspecialidad);
-            comando.Parameters.AddWithValue("@Día_Atencion", disponibilidad.dia);
-            comando.Parameters.AddWithValue("@HoraInicio", disponibilidad.horaInicio);
-            comando.Parameters.AddWithValue("@HoraFinal", disponibilidad.horaFinal);
+            comando.Parameters.AddWithValue("@Dia_Semana", disponibilidad.diaDeLaSemana);
+            comando.Parameters.AddWithValue("@Hora_Inicio", disponibilidad.horaInicio);
+            comando.Parameters.AddWithValue("@Hora_Final", disponibilidad.horaFinal);
             comando.Parameters.AddWithValue("@ChangedOn", DateTime.Now);
             comando.Parameters.AddWithValue("@ChangedBy", Contexto.UsuarioActual.Id);
 

@@ -10,8 +10,8 @@ namespace SantaMaria.Entidades
     {
         public int nroMatricula;
         public int codEspecialidad;
-        public string dia;
-        public DateTime horaInicio;
-        public DateTime horaFinal;
+        public int diaDeLaSemana;
+        public TimeSpan horaInicio;
+        public TimeSpan horaFinal;
     }
 }

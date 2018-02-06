@@ -23,7 +23,6 @@ namespace SantaMaria.DAL.DAO
             comando.CommandType = System.Data.CommandType.StoredProcedure;
 
             comando.Parameters.AddWithValue("@ID", Guid.NewGuid());
-            comando.Parameters.AddWithValue("@Cod_Especialidad", especialidad.CodEspecialidad);
             comando.Parameters.AddWithValue("@Descripcion", especialidad.Descripcion);
             comando.Parameters.AddWithValue("@CreatedOn", DateTime.Now);
             comando.Parameters.AddWithValue("@CreatedBy", Contexto.UsuarioActual.Id);
@@ -50,7 +49,7 @@ namespace SantaMaria.DAL.DAO
         {
             SqlConnection conexion = Conexion.Instancia;
 
-            string query = "[dbo].[EspecialidadesPorCod_Especialidad]";
+            string query = "[dbo].[EspecialidadesObtenerPorCod_Especialidad]";
 
             SqlCommand comando = new SqlCommand(query, conexion);
             comando.CommandType = System.Data.CommandType.StoredProcedure;

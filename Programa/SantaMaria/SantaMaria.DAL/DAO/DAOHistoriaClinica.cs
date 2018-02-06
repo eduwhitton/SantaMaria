@@ -18,7 +18,7 @@ namespace SantaMaria.DAL.DAO
         {
             SqlConnection conexion = Conexion.Instancia;
 
-            string query = "dbo.Historia_ClinicasAgregar";
+            string query = "dbo.Historias_ClinicasAgregar";
 
             SqlCommand comando = new SqlCommand(query, conexion);
             comando.CommandType = System.Data.CommandType.StoredProcedure;
@@ -55,7 +55,7 @@ namespace SantaMaria.DAL.DAO
         {
             SqlConnection conexion = Conexion.Instancia;
 
-            string query = "dbo.Historia_ClinicasObtenerPorDni";
+            string query = "dbo.Historias_ClinicasObtenerPorDni";
 
             SqlCommand comando = new SqlCommand(query, conexion);
             comando.CommandType = System.Data.CommandType.StoredProcedure;
@@ -104,7 +104,7 @@ namespace SantaMaria.DAL.DAO
         {
             SqlConnection conexion = Conexion.Instancia;
 
-            string query = "dbo.Historia_ClinicasObtenerPorId";
+            string query = "dbo.Historias_ClinicasObtenerPorId";
 
             SqlCommand comando = new SqlCommand(query, conexion);
             comando.CommandType = System.Data.CommandType.StoredProcedure;
@@ -147,7 +147,7 @@ namespace SantaMaria.DAL.DAO
         {
             SqlConnection conexion = Conexion.Instancia;
 
-            string query = "dbo.Historia_ClinicasModificar";
+            string query = "dbo.Historias_ClinicasModificar";
 
             SqlCommand comando = new SqlCommand(query, conexion);
             comando.CommandType = System.Data.CommandType.StoredProcedure;
@@ -185,7 +185,7 @@ namespace SantaMaria.DAL.DAO
 
             SqlConnection conexion = Conexion.Instancia;
 
-            string query = "dbo.Historia_ClinicasEliminar";
+            string query = "dbo.Historias_ClinicasEliminar";
 
             SqlCommand comando = new SqlCommand(query, conexion);
             comando.CommandType = System.Data.CommandType.StoredProcedure;
